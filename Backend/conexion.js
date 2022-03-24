@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/crudmernstack')
+mongoose.connect('mongodb+srv://Admin:1234@cluster0.zfflc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 const objectobd=mongoose.connection
 
