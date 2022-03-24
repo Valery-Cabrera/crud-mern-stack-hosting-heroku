@@ -57,7 +57,7 @@ function AgregarUsuario(){
                         <label htmlFor="telefono" className="form-label">Teléfono</label>
                         <input type="text" className="form-control" value={telefono}onChange={(e)=>{setTelefono(e.target.value)}}></input>
                     </div>
-                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar estudiante</button>
+                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar </button>
                 </div>
             </div>
         </div>
