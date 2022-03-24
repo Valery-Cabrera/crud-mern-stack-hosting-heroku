@@ -14,11 +14,6 @@ function AgregarUsuario(){
 
     const navegar =useNavigate()
 
-    const cors = require('cors');
-    const app=express();
-
-    app.use(cors())
-
     function agregarUsuario(){
         var usuario={
             nombre: nombre,
@@ -29,7 +24,7 @@ function AgregarUsuario(){
         }
         console.log(usuario)
 
-        app.post('/api/usuario/agregarusuario', usuario)
+        axios.post('/api/usuario/agregarusuario', usuario)
         .then(res => {
             Swal.fire('Felicidades', 'El usuario se creó con éxito')
             navegar('/')
@@ -62,7 +57,7 @@ function AgregarUsuario(){
                         <label htmlFor="telefono" className="form-label">Teléfono</label>
                         <input type="text" className="form-control" value={telefono}onChange={(e)=>{setTelefono(e.target.value)}}></input>
                     </div>
-                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar</button>
+                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar estudiante</button>
                 </div>
             </div>
         </div>
