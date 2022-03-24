@@ -24,13 +24,13 @@ function AgregarUsuario(){
         }
         console.log(usuario)
 
-        axios.post('/agregarusuario', usuario)
+        axios.post('/api/usuario/agregarusuario', usuario)
         .then(res => {
             Swal.fire('Felicidades', 'El usuario se creó con éxito')
             navegar('/')
         })
         //Validar si tenemos algun error
-        .then(err =>{console.log(err)})
+        .then(err =>{'aqui esta el error',console.log(err)})
 
     }
     return(
