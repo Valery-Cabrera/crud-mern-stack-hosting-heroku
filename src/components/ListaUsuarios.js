@@ -7,7 +7,7 @@ function ListaUsuarios(){
      const[datausuarios, setdatausuario] = useState([])
 
      useEffect(()=>{
-         axios.get('api/usuario/obtenerusuarios').then(res=>{
+         axios.get('/api/usuario/obtenerusuarios').then(res=>{
              console.log(res.data)//me mustra solo la data no el estado, ni nada más
              setdatausuario(res.data)//mustra los datos en la aplicación
              
