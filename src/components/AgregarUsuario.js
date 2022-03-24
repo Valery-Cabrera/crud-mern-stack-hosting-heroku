@@ -23,13 +23,9 @@ function AgregarUsuario(){
             idusuario: uniquid()
         }
         console.log(usuario)
+        
 
-        const cors = require('cors');
-        const app=express();
-
-        app.use(cors())
-
-        app.post('/api/usuario/agregarusuario', usuario)
+        axios.post('/agregarusuario', usuario)
         .then(res => {
             Swal.fire('Felicidades', 'El usuario se creó con éxito')
             navegar('/')
