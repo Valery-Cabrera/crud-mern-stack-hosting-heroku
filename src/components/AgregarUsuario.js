@@ -14,15 +14,10 @@ function AgregarUsuario(){
 
     const navegar =useNavigate()
 
-    const corsOptions={
-        "origin": "*",
-        "methods":"GET, HEAD, PUT, PATCH, POST, DELETE",
-        "preflightContinue":false,
-        "optionsSuccessStatus": 204,
-        "allowedHeards":["Content-Type"]
-    }
+    const cors = require('cors');
+    const app=express();
 
-    app.use(cors(corsOptions))
+    app.use(cors())
 
     function agregarUsuario(){
         var usuario={
@@ -67,7 +62,7 @@ function AgregarUsuario(){
                         <label htmlFor="telefono" className="form-label">Teléfono</label>
                         <input type="text" className="form-control" value={telefono}onChange={(e)=>{setTelefono(e.target.value)}}></input>
                     </div>
-                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar estudiante</button>
+                    <button onClick={agregarUsuario} className="btn btn-secondary">Guardar</button>
                 </div>
             </div>
         </div>
