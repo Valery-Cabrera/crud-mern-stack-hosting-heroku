@@ -24,7 +24,7 @@ function AgregarUsuario(){
         }
         console.log(usuario)
 
-        axios.post('/api/usuario/agregarusuario', usuario)
+        axios.post('/usuario/agregarusuario', usuario)
         .then(res => {
             Swal.fire('Felicidades', 'El usuario se creó con éxito')
             navegar('/')

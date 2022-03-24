@@ -12,7 +12,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:'true'}))
 
-app.use('/api/usuario',rutausuario)
+app.use('/usuario',rutausuario)
 
 //Express; si el servidor me esta dando un puerto lo toma, sino usa el 3000
 app.set('port', process.env.PORT || 5000)

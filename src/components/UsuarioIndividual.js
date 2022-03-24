@@ -8,7 +8,7 @@ function UsuarioIndividual({usuario}){//Recibe parametro de la funcion principal
     const navegar =useNavigate() //Agrego variable para que al eliminarlo vuelva automaticamente al inicio
     //Función para borrar usuario
     function borrarusuario(idusuario){
-        axios.post('/api/usuario/borrarusuario', {idusuario: idusuario}).then(res => {
+        axios.post('/usuario/borrarusuario', {idusuario: idusuario}).then(res => {
             console.log(res.data)
             Swal.fire('Felicidades', 'El usuario se borro con éxito')
             navegar(0)
