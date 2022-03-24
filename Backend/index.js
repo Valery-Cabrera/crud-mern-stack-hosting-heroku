@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({extended:'true'}))
 
 app.use('/api/usuario',rutausuario)
 
+//Express; si el servidor me esta dando un puerto lo toma, sino usa el 3000
+app.set('port', process.env.PORT || 5000)
+
 //Funcionamiento backend ver en el navegador
 app.get('/', (req,res)=> {
     res.end('Bienvenidos al servidor Backend Node.js Corriendo...')
@@ -21,6 +24,6 @@ app.get('/', (req,res)=> {
 
 
 //Configurar server básico
-app.listen(5000,function(){
-    console.log('El servidor NODE esta corriendo correctamente')
-})
+app.listen(app.get('port'),() => {
+    console.log(`server on port ${app.get('port')}`);
+});
