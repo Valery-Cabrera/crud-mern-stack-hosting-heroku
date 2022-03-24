@@ -5,10 +5,21 @@ import Swal from 'sweetalert2'
 
 function UsuarioIndividual({usuario}){//Recibe parametro de la funcion principal del componente ListaUsuarios
 
+    const corsOptions={
+        "origin": "*",
+        "methods":"GET, HEAD, PUT, PATCH, POST, DELETE",
+        "preflightContinue":false,
+        "optionsSuccessStatus": 204,
+        "allowedHeards":["Content-Type"]
+    }
+
+    app.use(cors(corsOptions))
+
+
     const navegar =useNavigate() //Agrego variable para que al eliminarlo vuelva automaticamente al inicio
     //Función para borrar usuario
     function borrarusuario(idusuario){
-        axios.post('/borrarusuario', {idusuario: idusuario}).then(res => {
+        app.post('/borrarusuario', {idusuario: idusuario}).then(res => {
             console.log(res.data)
             Swal.fire('Felicidades', 'El usuario se borro con éxito')
             navegar(0)

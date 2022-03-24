@@ -14,6 +14,16 @@ function AgregarUsuario(){
 
     const navegar =useNavigate()
 
+    const corsOptions={
+        "origin": "*",
+        "methods":"GET, HEAD, PUT, PATCH, POST, DELETE",
+        "preflightContinue":false,
+        "optionsSuccessStatus": 204,
+        "allowedHeards":["Content-Type"]
+    }
+
+    app.use(cors(corsOptions))
+
     function agregarUsuario(){
         var usuario={
             nombre: nombre,
@@ -24,13 +34,13 @@ function AgregarUsuario(){
         }
         console.log(usuario)
 
-        axios.post('/api/usuario/agregarusuario', usuario)
+        app.post('/api/usuario/agregarusuario', usuario)
         .then(res => {
             Swal.fire('Felicidades', 'El usuario se creó con éxito')
             navegar('/')
         })
         //Validar si tenemos algun error
-        .then(err =>{'aqui esta el error',console.log(err)})
+        .then(err =>{console.log(err)})
 
     }
     return(

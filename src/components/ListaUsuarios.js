@@ -3,11 +3,21 @@ import React, { useEffect, useState } from "react";
 import UsuarioIndividual from "./UsuarioIndividual";
 function ListaUsuarios(){
 
+    const corsOptions={
+        "origin": "*",
+        "methods":"GET, HEAD, PUT, PATCH, POST, DELETE",
+        "preflightContinue":false,
+        "optionsSuccessStatus": 204,
+        "allowedHeards":["Content-Type"]
+    }
+
+    app.use(cors(corsOptions))
+
      //Hooks
      const[datausuarios, setdatausuario] = useState([])
 
      useEffect(()=>{
-         axios.get('/obtenerusuarios').then(res=>{
+         app.get('/obtenerusuarios').then(res=>{
              console.log(res.data)//me mustra solo la data no el estado, ni nada más
              setdatausuario(res.data)//mustra los datos en la aplicación
              

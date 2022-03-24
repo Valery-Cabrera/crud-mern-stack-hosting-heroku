@@ -4,6 +4,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 function EditarUsuario(){
+
+    const corsOptions={
+        "origin": "*",
+        "methods":"GET, HEAD, PUT, PATCH, POST, DELETE",
+        "preflightContinue":false,
+        "optionsSuccessStatus": 204,
+        "allowedHeards":["Content-Type"]
+    }
+
+    app.use(cors(corsOptions))
     
     const params = useParams()
 
@@ -16,7 +26,7 @@ function EditarUsuario(){
      
 
      useEffect(() => {
-         axios.post('/obtenerdatausuario', {idusuario: params.idusuario}).then(res => {
+         app.post('/obtenerdatausuario', {idusuario: params.idusuario}).then(res => {
              console.log(res.data[0])
              const datausuario = res.data[0]
              setNombre(datausuario.nombre)
@@ -41,7 +51,7 @@ function EditarUsuario(){
             idusuario: params.idusuario
          }
         //Hacer la petición usando axios
-         axios.post('/actualizausuario', actualizarusuario)
+         app.post('/actualizausuario', actualizarusuario)
         .then(res => {
             console.log(res.data)
             Swal.fire('Felicidades', 'El usuario se actualizo con éxito')
