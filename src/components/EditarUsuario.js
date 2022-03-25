@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { Mongoose } from "../../Backend/conexion";
 
 function EditarUsuario(){
     
@@ -16,7 +17,9 @@ function EditarUsuario(){
      
 
      useEffect(() => {
-         axios.post('/api/usuario/obtenerdatausuario', {idusuario: params.idusuario}).then(res => {
+         var URL = Mongoose.rutausuario;
+         
+         axios.post(URL+'/obtenerdatausuario', {idusuario: params.idusuario}).then(res => {
              console.log(res.data[0])
              const datausuario = res.data[0]
              setNombre(datausuario.nombre)
